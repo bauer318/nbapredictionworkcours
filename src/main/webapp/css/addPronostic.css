@@ -1,0 +1,63 @@
+html,body{
+    width:100%;
+    background-color:rgb(37,75,75);
+}
+.centerDiv{
+    display:block;
+    width:80%;
+    margin: 0% auto;
+    margin-top: 1%;
+    color: white;
+    justify-content: space-between;
+}
+.pronosticResult{
+    display: block;
+}
+.othersMatch, .pronosticResult{
+    display: none;
+}
+.regimeDetail{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.mainDiv{
+    margin-top: 10px;
+    background-color: rgb(20, 18, 41);
+}
+::-webkit-scrollbar {
+    background-color: hsl(235, 24%, 19%);
+    width: 5px;
+}
+table label{
+    margin-left: 3px;
+}
+.centerDiv table{
+    width: 100%;
+    border-collapse: collapse;
+    border:1px solid white ;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+td, th{
+    text-align: left;
+}
+.teamTable .tdLabel{
+    width:20%;
+}
+.lastRow{
+    border-bottom: 1px solid white;
+}
+button{
+    border: solid white 1px;
+    border-radius: 1%;
+}
+.centerDiv button{
+    width: 70px;
+}
+button:hover{
+    background-color: orange;
+}
+

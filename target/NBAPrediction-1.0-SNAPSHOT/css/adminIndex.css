@@ -1,0 +1,64 @@
+html,body{
+    width:100%;
+    height:99%;
+    margin:0;
+    background-color:rgb(37,75,75);
+}
+.centerDiv{
+    display:flex;
+    width:100%;
+    height:80%;
+    margin-top:5px;
+}
+.addUserForm, .addUserList{
+    border: solid white 1px;
+    background-color: rgb(20, 18, 41);
+    color: white;
+    border-radius: 5px;
+}
+.addUserForm{
+    width: 40%;
+    height: 55%;
+}
+.addUserList{
+    width: 60%;
+    height: 98%;
+    margin: 5px;
+    margin-top: 0px;
+}
+.clientInfos{
+    display: none;
+}
+.tableTitle{
+    background-color:rgb(37,75,75);
+}
+.addUserForm form{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+.formAddUser input{
+    height: 10%;
+    width: 55%;
+    margin-right: 17%;
+}
+.formAddUser select{
+    margin-right: 17%;
+}
+.clientInfos button{
+    border: solid white 1px;
+    border-radius: 2px;
+    height: 50%;
+    margin-right: 17%;
+}
+.clientInfos button:hover{
+    background-color: orange;
+}
+footer{
+    width:100%;
+    height:10%;
+    border: solid white 1px;
+    border-radius: 5px;
+}
+

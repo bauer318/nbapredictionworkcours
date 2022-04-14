@@ -1,0 +1,49 @@
+html,body{
+    width:100%;
+    background-color:rgb(37,75,75);
+}
+.centerDiv{
+    display:block;
+    width:80%;
+    margin: 0% auto;
+    margin-top: 1%;
+    color: white;
+}
+#matchDate{
+    width: 80%;
+}
+#matchTime{
+    width: 50%;
+}
+#addMatchHeader{
+    background-color: rgb(20, 18, 41);
+}
+#listAddedMatchs{
+    margin-top: 10px;
+    background-color: rgb(20, 18, 41);
+}
+::-webkit-scrollbar {
+    background-color: hsl(235, 24%, 19%);
+    width: 5px;
+}
+table label{
+    margin-left: 3px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#listAddedMatchs tr td{
+    border-bottom: 1px solid white;
+}
+td{
+    text-align: center;
+}
+button{
+    border: solid white 1px;
+    border-radius: 1%;
+}
+button:hover{
+    background-color: orange;
+}
+
