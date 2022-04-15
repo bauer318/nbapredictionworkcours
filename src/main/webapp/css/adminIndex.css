@@ -1,14 +1,11 @@
 html,body{
     width:100%;
-    height:99%;
-    margin:0;
     background-color:rgb(37,75,75);
 }
 .centerDiv{
     display:flex;
-    width:100%;
-    height:80%;
-    margin-top:5px;
+    width:80%;
+    margin: 5px auto 0%;
 }
 .addUserForm, .addUserList{
     border: solid white 1px;
@@ -18,13 +15,10 @@ html,body{
 }
 .addUserForm{
     width: 40%;
-    height: 55%;
 }
 .addUserList{
     width: 60%;
-    height: 98%;
-    margin: 5px;
-    margin-top: 0px;
+    margin: 0px 5px 5px;
 }
 .clientInfos{
     display: none;
@@ -32,12 +26,14 @@ html,body{
 .tableTitle{
     background-color:rgb(37,75,75);
 }
+.tableListAddedUser td{
+    width: 10%;
+}
 .addUserForm form{
     display: inline-block;
     width: 100%;
     text-align: right;
 }
-
 .formAddUser input{
     height: 10%;
     width: 55%;
@@ -54,11 +50,5 @@ html,body{
 }
 .clientInfos button:hover{
     background-color: orange;
-}
-footer{
-    width:100%;
-    height:10%;
-    border: solid white 1px;
-    border-radius: 5px;
 }
 

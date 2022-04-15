@@ -6,9 +6,6 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Add user</title>
-    <style>
-        <c:import url="/css/adminIndex.css"/>
-    </style>
     <script type="text/javascript">
         <c:import url="/js/admin.js"/>
     </script>
@@ -16,6 +13,9 @@
 <body>
 <c:import url="/jsp/headers/adminHeader.jsp"/>
 <div class="centerDiv">
+    <style>
+        <c:import url="/css/adminIndex.css"/>
+    </style>
     <div class="addUserForm">
         <form class="formAddUser" id="formAddUser" method="POST" action="controller">
             <input type="hidden" name="command" value="adduser"/>
@@ -56,29 +56,29 @@
         </form>
     </div>
     <div class="addUserList">
-        <table>
+        <table class="tableListAddedUser">
             <tr class="tableTitle">
-                <td width="10%">Логин</td>
-                <td width="10%">Роль пользователя</td>
-                <td width="10%">Статус авторизации</td>
+                <td>Логин</td>
+                <td>Роль пользователя</td>
+                <td>Статус авторизации</td>
             </tr>
             <c:forEach var="user" items = "${users }">
                 <tr>
-                    <td width="10%">${user.login }</td>
+                    <td>${user.login }</td>
                     <c:if test="${user.idGroup==1 }">
-                        <td width="10%">АДМИНИСТРАТОР</td>
+                        <td>АДМИНИСТРАТОР</td>
                     </c:if>
                     <c:if test="${user.idGroup==2 }">
-                        <td width="10%">МОДЕРАТОР</td>
+                        <td>МОДЕРАТОР</td>
                     </c:if>
                     <c:if test="${user.idGroup==3 }">
-                        <td width="10%">ИГРОК</td>
+                        <td>ИГРОК</td>
                     </c:if>
                     <c:if test="${user.authorizationStatus==1 }">
-                        <td width="10%">АВТОРИЗОВАН</td>
+                        <td>АВТОРИЗОВАН</td>
                     </c:if>
                     <c:if test="${user.authorizationStatus==0 }">
-                        <td width="10%">НЕ АВТОРИЗОВАН</td>
+                        <td>НЕ АВТОРИЗОВАН</td>
                     </c:if>
                 </tr>
             </c:forEach>

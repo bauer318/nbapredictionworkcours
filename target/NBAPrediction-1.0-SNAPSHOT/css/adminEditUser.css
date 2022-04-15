@@ -4,55 +4,10 @@ html,body{
     margin:0;
     background-color:rgb(37,75,75);
 }
-.headerDiv{
-    width:100%;
-    height:10%;
-}
-.buttonMenu{
-    width:100%;
-    height:50%;
-}
-.menu{
-    width:100%;
-    height:50%;
-    background-color: rgb(20, 18, 41);
-    border: solid 1px white;
-    border-radius: 5px;
-}
-.menu ul{
-    display:flex;
-    list-style-type:none;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    margin-top:2px;
-}
-.menu li{
-    margin-left:15px;
-}
-.menu a{
-    font-size:1em;
-    color:white;
-    text-decoration:none;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-.menu a:hover{
-    background-color: grey;
-}
-.menu a:focus{
-    background-color: grey;
-    border-top: solid white 1px;
-    border-left: solid white 1px;
-    border-right: solid white 1px;
-    border-radius: 5px;
-}
 .centerDiv{
     display:flex;
-    width:100%;
-    height:80%;
-    margin-top:5px;
+    width:80%;
+    margin: 5px auto 0;
 }
 .addUserList{
     border: solid white 1px;
@@ -63,8 +18,13 @@ html,body{
 .addUserList{
     width: 99%;
     height: 98%;
-    margin: 5px;
-    margin-top: 0px;
+    margin: 0px 5px 5px;
+}
+.tableTitle th{
+    width: 20%;
+}
+#tableAddedUsers td{
+    width: 10%;
 }
 .tableTitle{
     background-color:rgb(37,75,75);
@@ -84,11 +44,5 @@ input{
 }
 button:hover{
     background-color: orange;
-}
-footer{
-    width:100%;
-    height:10%;
-    border: solid white 1px;
-    border-radius: 5px;
 }
 

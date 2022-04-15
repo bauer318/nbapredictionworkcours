@@ -5,8 +5,7 @@ html,body{
 .centerDiv{
     display:block;
     width:80%;
-    margin: 0% auto;
-    margin-top: 1%;
+    margin: 1% auto 0%;
     color: white;
 }
 #matchDate{

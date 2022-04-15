@@ -1,0 +1,41 @@
+.headerMenu{
+    width:80%;
+    margin: 0% auto;
+}
+.menu{
+    width:100%;
+    background-color: rgb(20, 18, 41);
+    border: solid 1px white;
+    border-radius: 5px;
+}
+#menuDiv button
+{
+    background-color: rgb(20, 18, 41);
+    color: white;
+    border: none;
+    outline: none;
+    height: 25px;
+}
+#menuDiv button:hover{
+    background-color: grey;
+}
+#menuDiv button:active{
+    background-color: bisque;
+}
+#menuDiv button:focus{
+    background-color: grey;
+    border-top: solid white 1px;
+    border-left: solid white 1px;
+    border-right: solid white 1px;
+    border-radius: 5px;
+}
+.menu form{
+    display : none
+}
+#menuDiv {
+    width: 100%;
+    display: flex;
+}
+.menuButtonDiv{
+    margin: 0 auto;
+}
