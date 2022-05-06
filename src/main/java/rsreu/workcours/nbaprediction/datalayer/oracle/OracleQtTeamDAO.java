@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.QtTeamDAO;
+import rsreu.workcours.nbaprediction.data.dao.QtTeamDAO;
 import rsreu.workcours.nbaprediction.data.QtTeam;
 
 import java.sql.*;

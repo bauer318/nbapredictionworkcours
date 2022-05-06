@@ -3,6 +3,10 @@ package rsreu.workcours.nbaprediction.moderator.logic;
 import rsreu.workcours.nbaprediction.data.*;
 import rsreu.workcours.nbaprediction.data.Match;
 import rsreu.workcours.nbaprediction.data.QtTeam;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.MatchDAO;
+import rsreu.workcours.nbaprediction.data.dao.QtTeamDAO;
+import rsreu.workcours.nbaprediction.data.dao.TeamDAO;
 
 import java.sql.Date;
 import java.util.ArrayList;

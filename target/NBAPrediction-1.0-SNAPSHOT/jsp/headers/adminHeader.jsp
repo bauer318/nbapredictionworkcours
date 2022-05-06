@@ -17,7 +17,7 @@
             <input type="hidden" name="command" value="menuAddUser">
         </form>
         <form id="editUserMenuForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="editUser">
+            <input type="hidden" name="command" value="menuEditUser">
         </form>
         <form id="logoutForm" method="POST" action="controller">
             <input type="hidden" name="command" value="logout">

@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.BettorDAO;
+import rsreu.workcours.nbaprediction.data.dao.BettorDAO;
 import rsreu.workcours.nbaprediction.data.Bettor;
 
 import java.sql.Connection;
@@ -22,7 +22,8 @@ public class OracleBettorDAO implements BettorDAO {
         List<Bettor> bettors = new ArrayList<Bettor>();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "SELECT applicationusers.id_user, login, password_,blockingstatus,id_bettor,firstname,lastname,email FROM applicationusers JOIN bettors ON applicationusers.id_user = bettors.id_user");
+                    "SELECT applicationusers.id_user, login, password_,blockingstatus,authorizationstatus" +
+                            ",id_bettor,firstname,lastname,email FROM applicationusers JOIN bettors ON applicationusers.id_user = bettors.id_user");
             try(ResultSet resultSet = preparedStatement.executeQuery()){
                 while(resultSet.next()) {
                     int idUser = resultSet.getInt("id_user");
@@ -33,7 +34,8 @@ public class OracleBettorDAO implements BettorDAO {
                     String firstname = resultSet.getString("firstname");
                     String lastname = resultSet.getString("lastname");
                     String email = resultSet.getString("email");
-                    Bettor bettor = new Bettor(idBettor,idUser,login, password,email, firstname, lastname, blockingStatus);
+                    int authorizationStatus = resultSet.getInt("authorizationstatus");
+                    Bettor bettor = new Bettor(idUser,3,login,password,blockingStatus,authorizationStatus,idBettor,email,firstname,lastname);
                     bettors.add(bettor);
                 }
             }

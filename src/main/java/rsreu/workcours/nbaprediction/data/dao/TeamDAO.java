@@ -1,4 +1,4 @@
-package rsreu.workcours.nbaprediction.data;
+package rsreu.workcours.nbaprediction.data.dao;
 
 import java.sql.SQLException;
 import java.util.Map;

@@ -1,5 +1,6 @@
 package rsreu.workcours.nbaprediction.data;
 
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
 import rsreu.workcours.nbaprediction.datalayer.oracle.OracleDBDAOFactory;
 
 public enum DBType {

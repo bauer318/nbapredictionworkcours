@@ -1,8 +1,8 @@
 package rsreu.workcours.nbaprediction.user.logic;
 
-import rsreu.workcours.nbaprediction.data.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
 import rsreu.workcours.nbaprediction.data.DBType;
-import rsreu.workcours.nbaprediction.data.UserDAO;
+import rsreu.workcours.nbaprediction.data.dao.UserDAO;
 import rsreu.workcours.nbaprediction.data.User;
 
 import java.util.ArrayList;
@@ -18,5 +18,18 @@ public class EditUserLogic {
             e.printStackTrace();
         }
         return adminModerators;
+    }
+    public static User getUserById(int id){
+        User user = null;
+        try(DAOFactory daoFactory=DAOFactory.getInstance(DBType.ORACLE)){
+            UserDAO userDAO = daoFactory.getUserDAO();
+            user = userDAO.getUserById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return user;
+    }
+    public static boolean isExistUser(User user){
+        return user!=null;
     }
 }

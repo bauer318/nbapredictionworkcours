@@ -35,5 +35,4 @@ function updateUserData(){
     userEmail[0].required = true;
     login[0].required = true;
     password[0].required = true;
-
 }

@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.ResultDAO;
+import rsreu.workcours.nbaprediction.data.dao.ResultDAO;
 import rsreu.workcours.nbaprediction.data.Result;
 import rsreu.workcours.nbaprediction.data.XY;
 

@@ -1,4 +1,6 @@
-package rsreu.workcours.nbaprediction.data;
+package rsreu.workcours.nbaprediction.data.dao;
+
+import rsreu.workcours.nbaprediction.data.DefensiveRanting;
 
 import java.sql.Date;
 import java.sql.SQLException;

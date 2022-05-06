@@ -33,9 +33,9 @@ public enum CommandEnum {
             this.command = new MenuAddUserCommand();
         }
     },
-    EDITUSER {
+    MENUEDITUSER {
         {
-            this.command = new EditUserCommand();
+            this.command = new MenuEditUserCommand();
         }
     },
     EDITADMINMODERATOR {
@@ -43,14 +43,14 @@ public enum CommandEnum {
             this.command = new EditAdminModeratorCommand();
         }
     },
-    DELETEADMINMODERATOR {
+    DELETEUSER {
         {
             this.command = new DeleteAdminModeratorCommand();
         }
     },
-    SAVEADMINMODERATORDATA {
+    EDITUSER {
         {
-            this.command = new SaveAdminModeratorDataCommand();
+            this.command = new EditUserCommand();
         }
     },
     ADDMATCH {
@@ -91,6 +91,16 @@ public enum CommandEnum {
     RANTING {
         {
             this.command = new RantingCommand();
+        }
+    },
+    SAVEEDITUSER{
+        {
+            this.command = new SaveEditUserCommand();
+        }
+    },
+    CANCELEDIT{
+        {
+            this.command = new CancelEditCommand();
         }
     };
 

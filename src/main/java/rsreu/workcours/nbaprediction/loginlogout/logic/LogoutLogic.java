@@ -1,8 +1,8 @@
 package rsreu.workcours.nbaprediction.loginlogout.logic;
 
-import rsreu.workcours.nbaprediction.data.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
 import rsreu.workcours.nbaprediction.data.DBType;
-import rsreu.workcours.nbaprediction.data.UserDAO;
+import rsreu.workcours.nbaprediction.data.dao.UserDAO;
 
 public class LogoutLogic {
     public static void setAuthorizationStatus(String login, int status) {

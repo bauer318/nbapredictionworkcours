@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.TeamDAO;
+import rsreu.workcours.nbaprediction.data.dao.TeamDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,8 @@
 package rsreu.workcours.nbaprediction.user.logic;
 
-import rsreu.workcours.nbaprediction.data.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
 import rsreu.workcours.nbaprediction.data.DBType;
-import rsreu.workcours.nbaprediction.data.UserDAO;
+import rsreu.workcours.nbaprediction.data.dao.UserDAO;
 
 public class SaveAdminModeratorDataLogic {
     public static String getLoginByID(int id) {

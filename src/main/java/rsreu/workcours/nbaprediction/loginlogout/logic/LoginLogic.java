@@ -5,6 +5,9 @@ import jakarta.servlet.http.HttpSession;
 import rsreu.workcours.nbaprediction.data.*;
 import rsreu.workcours.nbaprediction.data.Bettor;
 import rsreu.workcours.nbaprediction.data.User;
+import rsreu.workcours.nbaprediction.data.dao.BettorDAO;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.UserDAO;
 
 import java.util.List;
 

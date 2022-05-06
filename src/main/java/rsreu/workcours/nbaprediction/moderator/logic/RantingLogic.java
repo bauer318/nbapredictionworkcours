@@ -4,6 +4,10 @@ import rsreu.workcours.nbaprediction.data.*;
 import rsreu.workcours.nbaprediction.data.DefensiveRanting;
 import rsreu.workcours.nbaprediction.data.OffensiveRanting;
 import rsreu.workcours.nbaprediction.data.Ranting;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.DefensiveRantingDAO;
+import rsreu.workcours.nbaprediction.data.dao.OffensiveRantingDAO;
+import rsreu.workcours.nbaprediction.data.dao.RantingDAO;
 import rsreu.workcours.nbaprediction.decimal.DecimalFormater;
 
 import java.sql.Date;

@@ -1,9 +1,9 @@
 package rsreu.workcours.nbaprediction.moderator.logic;
 
-import rsreu.workcours.nbaprediction.data.DAOFactory;
+import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
 import rsreu.workcours.nbaprediction.data.DBType;
-import rsreu.workcours.nbaprediction.data.QtTeamDAO;
-import rsreu.workcours.nbaprediction.data.ResultDAO;
+import rsreu.workcours.nbaprediction.data.dao.QtTeamDAO;
+import rsreu.workcours.nbaprediction.data.dao.ResultDAO;
 import rsreu.workcours.nbaprediction.data.QtTeam;
 import rsreu.workcours.nbaprediction.data.Result;
 import rsreu.workcours.nbaprediction.data.XY;

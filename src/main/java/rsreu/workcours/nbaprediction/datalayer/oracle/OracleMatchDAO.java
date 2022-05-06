@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.MatchDAO;
+import rsreu.workcours.nbaprediction.data.dao.MatchDAO;
 import rsreu.workcours.nbaprediction.data.Match;
 
 import java.sql.*;

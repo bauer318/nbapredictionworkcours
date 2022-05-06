@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.*;
+import rsreu.workcours.nbaprediction.data.dao.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -17,6 +17,18 @@ public class User {
         this.blockingStatus = blockingStatus;
     }
 
+    public User(User user){
+        this.id = user.id;
+        this.idGroup = user.idGroup;
+        this.login = user.login;
+        this.password = user.password;
+        this.authorizationStatus = user.authorizationStatus;
+        this.blockingStatus = user.blockingStatus;
+    }
+    public User clone(){
+        return new User(this);
+    }
+
     public User(String login, String password) {
         this.login = login;
         this.password = password;

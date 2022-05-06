@@ -16,6 +16,27 @@
 <body>
 <%@include file="/jsp/headers/adminHeader.jsp" %>
 <div class="centerDiv">
+    <dialog ${open}>
+        <form id="dialogForm" action="controller" method="post">
+            <input type="hidden" name="command" value="saveEditUser"/>
+            <h4>Роль Действие</h4>
+            <label for="login">Логин </label><br/>
+            <input id = "login"name="login" type="text" value="${clonedUser.login}"/><br/>
+            <label for="password">Пароль </label><br/>
+            <input id ="password" name="password" type="text" value="${clonedUser.password}"/><br/>
+            <label for="firstName">Имя</label><br/>
+            <input id="firstName" name="firstName" type="text"/><br/>
+            <label for="lastName">Фамилия</label><br/>
+            <input id="lastName" name="lastName" type="text"/><br/>
+            <label for="email">Электроная почта</label><br/>
+            <input id="email" name="email" type="email"/><br/>
+            <button type="submit">Изменить</button>
+            <form id="cancelForm" action="controller" method="post">
+                <input type="hidden" name="command" value="cancelEdit">
+                <button type="submit">Отмена</button><br/>
+            </form>
+        </form>
+    </dialog>
     <div class="addUserList">
         <table id="tableAddedUsers">
             <tr class="tableTitle">
@@ -27,7 +48,7 @@
             <c:forEach var = "elem" items="${adminModerators }" varStatus="loop">
                 <tr>
                     <form action="controller" method="POST">
-                        <input type="hidden" name="command" value="saveAdminModeratorData"/>
+                        <input type="hidden" name="command" value="editUser"/>
                         <input type="hidden" name="adminModeratorID" value="${elem.id }"/>
                         <td colspan="2">
                             <label name="userLogin" >${elem.login}</label>
@@ -38,13 +59,10 @@
                         <td>
                             <button type="submit" name="editUserButton">Редактировать</button>
                         </td>
-                        <td>
-                            <button type="submit" name="saveUserButton">Сохранить</button>
-                        </td>
                     </form>
                     <td>
                         <form method="POST" action="controller">
-                            <input type="hidden" name ="command" value="deleteAdminModerator"/>
+                            <input type="hidden" name ="command" value="deleteUser"/>
                             <input type="hidden" name="adminModeratorID" value="${elem.id }"/>
                             <button type="submit">Удалить</button>
                         </form>
@@ -73,9 +91,8 @@
                     <td><label name="userEmail">${elem.email}</label></td>
                     <td><label name="userLogin">${elem.login}</label></td>
                     <td><label name="userPassword">${elem.password }</label></td>
-                    <td><button type="button" name="editUserButton" onclick="updateUserData()" form="bettorDataForm">Редактировать</button></td>
-                    <td><button type="submit" name="saveUserButton" form="bettorEditForm">Сохранить</button></td>
-                    <td><button type="button" name="deleteUserButton" form="bettorDeleteForm">Удалить</button></td>
+                    <td><button type="button" name="editUserButton" onclick="updateUserData()">Редактировать</button></td>
+                    <td><button type="button" name="deleteUserButton" >Удалить</button></td>
                     <td>
                         <c:choose>
                             <c:when test="${elem.blockingStatus==1 }"><button type="submit" style="color:red;">Разблокировать</button></c:when>

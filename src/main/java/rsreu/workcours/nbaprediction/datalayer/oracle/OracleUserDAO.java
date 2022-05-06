@@ -1,6 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
-import rsreu.workcours.nbaprediction.data.UserDAO;
+import rsreu.workcours.nbaprediction.data.dao.UserDAO;
 import rsreu.workcours.nbaprediction.data.User;
 
 import java.sql.Connection;
@@ -57,6 +57,28 @@ public class OracleUserDAO implements UserDAO {
             }
         } catch (SQLException e) {
 
+        }
+        return user;
+    }
+
+    @Override
+    public User getUserById(int id) throws SQLException {
+        User user = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM applicationusers WHERE id_user=?");
+            preparedStatement.setInt(1,id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int idGroup = resultSet.getInt("id_group");
+                    String login = resultSet.getString("login");
+                    String password = resultSet.getString("password_");
+                    int blockingStatus = resultSet.getInt("blockingstatus");
+                    int authorizationStatus = resultSet.getInt("authorizationstatus");
+                    user = new User(id, idGroup, login, password, blockingStatus, authorizationStatus);
+                }
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Error");
         }
         return user;
     }
