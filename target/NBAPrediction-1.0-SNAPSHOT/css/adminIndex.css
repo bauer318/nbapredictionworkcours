@@ -6,11 +6,13 @@ html,body{
     display:flex;
     width:80%;
     margin: 5px auto 0%;
+
 }
 .addUserForm, .addUserList{
-    border: solid white 1px;
     background-color: rgb(20, 18, 41);
     color: white;
+    height: 100%;
+    border: solid white 1px;
     border-radius: 5px;
 }
 .addUserForm{
@@ -18,7 +20,7 @@ html,body{
 }
 .addUserList{
     width: 60%;
-    margin: 0px 5px 5px;
+    margin-left: 2%;
 }
 .clientInfos{
     display: none;
@@ -41,14 +43,5 @@ html,body{
 }
 .formAddUser select{
     margin-right: 17%;
-}
-.clientInfos button{
-    border: solid white 1px;
-    border-radius: 2px;
-    height: 50%;
-    margin-right: 17%;
-}
-.clientInfos button:hover{
-    background-color: orange;
 }
 
