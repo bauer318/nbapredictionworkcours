@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface BettorDAO {
     List<Bettor> getAllBettors() throws SQLException;
+    Bettor getBettorByIdUser(int idUser) throws SQLException;
+    void updateBettor(Bettor bettor) throws  SQLException;
+    void deleteBettorById(int id) throws SQLException;
 }

@@ -2,6 +2,7 @@ package rsreu.workcours.nbaprediction.data;
 
 import jakarta.servlet.http.HttpServletRequest;
 import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
+import rsreu.workcours.nbaprediction.user.logic.EditUserLogic;
 
 import java.util.List;
 
@@ -19,6 +20,21 @@ public enum UserTypeEnum {
             request.setAttribute("users", users);
 
         }
+
+        @Override
+        public User getUserById(int id) {
+            return EditUserLogic.getUserById(id);
+        }
+
+        @Override
+        public boolean isBettor() {
+            return false;
+        }
+
+        @Override
+        public String getUserRole() {
+            return "АДМИНИСТРАТОР";
+        }
     },MODERATOR(2) {
         @Override
         public String getUserIndexPage() {
@@ -30,6 +46,21 @@ public enum UserTypeEnum {
         public void setUserMenu(HttpServletRequest request) {
             // TODO Auto-generated method stub
 
+        }
+
+        @Override
+        public User getUserById(int id) {
+            return EditUserLogic.getUserById(id);
+        }
+
+        @Override
+        public boolean isBettor() {
+            return false;
+        }
+
+        @Override
+        public String getUserRole() {
+            return "МОДЕРАТОР";
         }
     },BETTOR(3) {
         @Override
@@ -43,6 +74,21 @@ public enum UserTypeEnum {
             // TODO Auto-generated method stub
 
         }
+
+        @Override
+        public User getUserById(int id) {
+            return EditUserLogic.getBettorByIdUser(id);
+        }
+
+        @Override
+        public boolean isBettor() {
+            return true;
+        }
+
+        @Override
+        public String getUserRole() {
+            return "ИГРОК";
+        }
     },UNKNOW(4) {
         @Override
         public String getUserIndexPage() {
@@ -54,6 +100,21 @@ public enum UserTypeEnum {
         public void setUserMenu(HttpServletRequest request) {
             // TODO Auto-generated method stub
 
+        }
+
+        @Override
+        public User getUserById(int id) {
+            return null;
+        }
+
+        @Override
+        public boolean isBettor() {
+            return false;
+        }
+
+        @Override
+        public String getUserRole() {
+            return "UNKNOW";
         }
     };
 
@@ -69,6 +130,9 @@ public enum UserTypeEnum {
     }
     public abstract String getUserIndexPage();
     public abstract void setUserMenu(HttpServletRequest request);
+    public abstract  User getUserById(int id);
+    public abstract boolean isBettor();
+    public abstract String getUserRole();
     public static UserTypeEnum getUserRole(int idGroup) {
         for(UserTypeEnum userRole : values()) {
             if(idGroup==userRole.idGroup) {

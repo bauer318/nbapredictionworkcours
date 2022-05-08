@@ -64,9 +64,33 @@ public class LoginLogic {
         }
         return role;
     }
+    public  static UserTypeEnum getUserRoleById(int id){
+        UserTypeEnum role = null;
+        try (DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)) {
+            UserDAO userDAO = factory.getUserDAO();
+            User user = userDAO.getUserById(id);
+            int groupID = user.getIdGroup();
+            role = UserTypeEnum.getUserRole(groupID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return role;
+    }
     public static void setUserSession(HttpServletRequest request, String login, UserTypeEnum role) {
         HttpSession session = request.getSession();
         session.setAttribute("login", login);
         session.setAttribute("role", role);
+    }
+    public static int getUserIdByLogin(String login){
+        int id = 0;
+        try(DAOFactory factory=DAOFactory.getInstance(DBType.ORACLE)){
+            UserDAO userDAO = factory.getUserDAO();
+            if(!login.isEmpty()){
+              id = userDAO.getUserIdByLogin(login);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return id;
     }
 }

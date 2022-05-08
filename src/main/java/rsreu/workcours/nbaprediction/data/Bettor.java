@@ -1,32 +1,42 @@
 package rsreu.workcours.nbaprediction.data;
 
 public class Bettor extends User{
-    private int id;
+    private int idBettor;
     private String email;
     private String firstname;
     private String lastname;
 
-    public Bettor(int idUser,
+    public Bettor(int id,
                   int idGroup,
                   String login,
                   String password,
                   int blockingStatus,
                   int authorizationStatus,
-                  int id,
+                  int idBettor,
                   String email,
                   String firstname,
                   String lastname) {
-        super(idUser, idGroup, login, password, blockingStatus, authorizationStatus);
-        this.id = id;
+        super(id, idGroup, login, password, blockingStatus, authorizationStatus);
+        this.idBettor = idBettor;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
     }
-    public int getId() {
-        return id;
+    public Bettor(Bettor bettor){
+        super(bettor);
+        this.idBettor = bettor.idBettor;
+        this.email=bettor.email;
+        this.firstname = bettor.firstname;
+        this.lastname = bettor.lastname;
     }
-    public void setId(int id) {
-        this.id = id;
+    public Bettor clone(){
+        return new Bettor(this);
+    }
+    public int getIdBettor() {
+        return idBettor;
+    }
+    public void setIdBettor(int idBettor) {
+        this.idBettor = idBettor;
     }
 
     public String getEmail() {

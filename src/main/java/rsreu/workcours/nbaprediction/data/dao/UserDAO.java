@@ -16,5 +16,7 @@ public interface UserDAO {
     List<User> getAdminModer() throws SQLException;
     void deleteUserByID(int id) throws SQLException;
     String getLoginByID(int id) throws SQLException;
-    void udpdateUserByID(int id, String login, String password) throws SQLException;
+    void updateUserByID(User user) throws SQLException;
+    int getUserIdByLogin(String login) throws SQLException;
+    void setUserBlockingStatusById(int id, int blockingStatus) throws SQLException;
 }

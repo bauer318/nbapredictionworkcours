@@ -1,6 +1,7 @@
 package rsreu.workcours.nbaprediction.loginlogout.command;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import rsreu.workcours.nbaprediction.actioncommand.ActionCommand;
 import rsreu.workcours.nbaprediction.data.UserTypeEnum;
 import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
@@ -20,8 +21,11 @@ public class LoginCommand implements ActionCommand {
             LoginLogic.setUserSession(request, login, role);
             role.setUserMenu(request);
             page = role.getUserIndexPage();
+            int userId = LoginLogic.getUserIdByLogin(login);
+            HttpSession session = request.getSession();
+            session.setAttribute("id",userId);
         }else {
-            request.setAttribute("wrongloginpass", "Неправ");
+            request.setAttribute("wrongloginpass", "Неправильно логин или пароль");
             page="/jsp/commands/login.jsp";
         }
         return page;

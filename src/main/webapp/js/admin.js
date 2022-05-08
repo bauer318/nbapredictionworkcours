@@ -36,3 +36,7 @@ function updateUserData(){
     login[0].required = true;
     password[0].required = true;
 }
+function cancel(){
+    var dialog = document.querySelector('dialog');
+    dialog.close();
+}

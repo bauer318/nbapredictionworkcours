@@ -38,14 +38,9 @@ public enum CommandEnum {
             this.command = new MenuEditUserCommand();
         }
     },
-    EDITADMINMODERATOR {
-        {
-            this.command = new EditAdminModeratorCommand();
-        }
-    },
     DELETEUSER {
         {
-            this.command = new DeleteAdminModeratorCommand();
+            this.command = new DeleteUserCommand();
         }
     },
     EDITUSER {
@@ -93,17 +88,16 @@ public enum CommandEnum {
             this.command = new RantingCommand();
         }
     },
-    SAVEEDITUSER{
+    UPDATEUSER{
         {
-            this.command = new SaveEditUserCommand();
+            this.command = new UpdateUserCommand();
         }
     },
-    CANCELEDIT{
+    BLOCKUNBLOCKUSER{
         {
-            this.command = new CancelEditCommand();
+           this.command = new BlockUnblockUserCommand();
         }
     };
-
     ActionCommand command;
 
     public ActionCommand getCurrentCommand() {

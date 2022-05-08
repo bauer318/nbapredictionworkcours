@@ -16,42 +16,48 @@
 <body>
 <%@include file="/jsp/headers/adminHeader.jsp" %>
 <div class="centerDiv">
-    <dialog ${open}>
+    <dialog id="dialog" ${open}>
         <form id="dialogForm" action="controller" method="post">
-            <input type="hidden" name="command" value="saveEditUser"/>
-            <h4>Роль Действие</h4>
+            <input type="hidden" name="command" value="updateUser"/>
+            <input type="hidden" name="isBettor" value="${isBettor}">
+            <h4>${regime}</h4>
+            <h6>${userRole}</h6>
             <label for="login">Логин </label><br/>
-            <input id = "login"name="login" type="text" value="${clonedUser.login}"/><br/>
+            <input id = "login"name="login" type="text" value="${clonedUser.login}" ${disabled}/><br/>
             <label for="password">Пароль </label><br/>
-            <input id ="password" name="password" type="text" value="${clonedUser.password}"/><br/>
+            <input id ="password" name="password" type="text" value="${clonedUser.password}" ${disabled}/><br/>
+            <c:if test="${isBettor}">
             <label for="firstName">Имя</label><br/>
-            <input id="firstName" name="firstName" type="text"/><br/>
+            <input id="firstName" name="firstname" type="text"  value="${clonedUser.firstname}" ${disabled}/><br/>
             <label for="lastName">Фамилия</label><br/>
-            <input id="lastName" name="lastName" type="text"/><br/>
+            <input id="lastName" name="lastname" type="text" value="${clonedUser.lastname}" ${disabled}/><br/>
             <label for="email">Электроная почта</label><br/>
-            <input id="email" name="email" type="email"/><br/>
-            <button type="submit">Изменить</button>
-            <form id="cancelForm" action="controller" method="post">
-                <input type="hidden" name="command" value="cancelEdit">
-                <button type="submit">Отмена</button><br/>
-            </form>
+            <input id="email" name="email" type="text" value="${clonedUser.email}" ${disabled}/><br/>
+            </c:if>
+            <c:if test="${incorrectData}">
+                <label>Неправильные веденные данные</label>
+            </c:if>
+            <c:if test="${isExistLogin}">
+                <label>Этот логин уже существует</label>
+            </c:if>
+            <button type="submit">${action}</button>
+            <button type="button" onclick="cancel();">Отмена</button><br/>
         </form>
     </dialog>
     <div class="addUserList">
         <table id="tableAddedUsers">
             <tr class="tableTitle">
-                <th colspan="2">Логин</th>
+                <th colspan="3">Логин</th>
                 <th colspan="2">Пароль</th>
-                <th colspan="4">Актулизация данных</th>
-                <th colspan="2">Блокировать</th>
+                <th colspan="3">Актулизация данных</th>
             </tr>
-            <c:forEach var = "elem" items="${adminModerators }" varStatus="loop">
+             <c:forEach var = "elem" items="${adminModerators }" varStatus="loop">
                 <tr>
                     <form action="controller" method="POST">
                         <input type="hidden" name="command" value="editUser"/>
-                        <input type="hidden" name="adminModeratorID" value="${elem.id }"/>
-                        <td colspan="2">
-                            <label name="userLogin" >${elem.login}</label>
+                        <input type="hidden" name="userId" value="${elem.id }"/>
+                        <td colspan="3">
+                            <label name="userLogin">${elem.login}</label>
                         </td>
                         <td  colspan="2">
                             <label name="userPassword">${elem.password }</label>
@@ -63,15 +69,30 @@
                     <td>
                         <form method="POST" action="controller">
                             <input type="hidden" name ="command" value="deleteUser"/>
-                            <input type="hidden" name="adminModeratorID" value="${elem.id }"/>
-                            <button type="submit">Удалить</button>
+                            <input type="hidden" name="userId" value="${elem.id }"/>
+                            <c:choose>
+                                <c:when test="${elem.id==id}"> <button type="button" disabled>Удалить</button></c:when>
+                                <c:otherwise><button type="submit">Удалить</button></c:otherwise>
+                            </c:choose>
                         </form>
                     </td>
-                    <td colspan="2">
-                        <c:choose>
-                            <c:when test="${elem.blockingStatus==1 }"><button type="submit" style="color:red;">Разблокировать</button></c:when>
-                            <c:otherwise><button type="submit" style="color:green;">Блокировать</button></c:otherwise>
-                        </c:choose>
+                    <td>
+                        <form method="post" action="controller">
+                            <input type="hidden" name="command" value="blockUnblockUser">
+                            <input type="hidden" name="userId" value="${elem.id }"/>
+                            <input type="hidden" name="userBlockingStatus" value="${elem.blockingStatus}">
+                            <c:choose>
+                                    <c:when test="${elem.id==id}">
+                                        <button type="button"  disabled>блокировать</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${elem.blockingStatus==1 }"><button type="submit" style="color:red;">Разблокировать</button></c:when>
+                                            <c:otherwise><button type="submit" style="color:green;">Блокировать</button></c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise>
+                            </c:choose>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
@@ -82,22 +103,36 @@
                 <th>Логин</th>
                 <th>Пароль</th>
                 <th colspan="3">Актулизация данных</th>
-                <th>Блокировать</th>
             </tr>
-            <c:forEach var="elem" items="${bettors }">
+            <c:forEach var="bettor" items="${bettors }" varStatus="bettorLop">
                 <tr>
-                    <td><label name="userFirstName">${elem.firstname }</label></td>
-                    <td><label name="userLastName">${elem.lastname }</label></td>
-                    <td><label name="userEmail">${elem.email}</label></td>
-                    <td><label name="userLogin">${elem.login}</label></td>
-                    <td><label name="userPassword">${elem.password }</label></td>
-                    <td><button type="button" name="editUserButton" onclick="updateUserData()">Редактировать</button></td>
-                    <td><button type="button" name="deleteUserButton" >Удалить</button></td>
+                    <form method="post" action="controller">
+                        <input type="hidden" name="command" value="editUser"/>
+                        <input type="hidden" name="userId" value="${bettor.id }"/>
+                        <td><label name="userFirstName">${bettor.firstname }</label></td>
+                        <td><label name="userLastName">${bettor.lastname }</label></td>
+                        <td><label name="userEmail">${bettor.email}</label></td>
+                        <td><label name="userLogin">${bettor.login}</label></td>
+                        <td><label name="userPassword">${bettor.password }</label></td>
+                        <td><button type="submit" name="editUserButton">Редактировать</button></td>
+                    </form>
                     <td>
+                        <form method="POST" action="controller">
+                            <input type="hidden" name ="command" value="deleteUser"/>
+                            <input type="hidden" name="userId" value="${bettor.id }"/>
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="controller">
+                            <input type="hidden" name="command" value="blockUnblockUser">
+                            <input type="hidden" name="userId" value="${bettor.id }"/>
+                            <input type="hidden" name="userBlockingStatus" value="${bettor.blockingStatus}">
                         <c:choose>
-                            <c:when test="${elem.blockingStatus==1 }"><button type="submit" style="color:red;">Разблокировать</button></c:when>
+                            <c:when test="${bettor.blockingStatus==1 }"><button type="submit" style="color:red;">Разблокировать</button></c:when>
                             <c:otherwise><button type="submit" style="color:green;">Блокировать</button></c:otherwise>
                         </c:choose>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
