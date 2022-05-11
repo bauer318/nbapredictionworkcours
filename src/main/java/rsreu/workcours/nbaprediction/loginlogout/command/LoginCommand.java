@@ -24,6 +24,7 @@ public class LoginCommand implements ActionCommand {
             int userId = LoginLogic.getUserIdByLogin(login);
             HttpSession session = request.getSession();
             session.setAttribute("id",userId);
+            session.setMaxInactiveInterval(5*3600);
         }else {
             request.setAttribute("wrongloginpass", "Неправильно логин или пароль");
             page="/jsp/commands/login.jsp";

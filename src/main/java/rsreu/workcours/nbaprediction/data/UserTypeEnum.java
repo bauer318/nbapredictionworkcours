@@ -1,9 +1,16 @@
 package rsreu.workcours.nbaprediction.data;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import rsreu.workcours.nbaprediction.datetime.DateTimeWorker;
 import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
+import rsreu.workcours.nbaprediction.moderator.logic.AddMatchLogic;
+import rsreu.workcours.nbaprediction.moderator.logic.UpdatePointsLogic;
 import rsreu.workcours.nbaprediction.user.logic.EditUserLogic;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public enum UserTypeEnum {
@@ -44,8 +51,19 @@ public enum UserTypeEnum {
 
         @Override
         public void setUserMenu(HttpServletRequest request) {
-            // TODO Auto-generated method stub
-
+            int currentHour = LocalTime.now().getHour();
+            int currentMinute = LocalTime.now().getMinute();
+            LocalTime currentTime = LocalTime.of(currentHour, currentMinute);
+            LocalDate currentDate = LocalDate.now();
+            HttpSession session = request.getSession();
+            session.setAttribute("currentTime", currentTime);
+            session.setAttribute("currentDate", currentDate);
+            session.setAttribute("nbaTeams", AddMatchLogic.getNbaTeams());
+            Date date = DateTimeWorker.localDateToDate(currentDate);
+            session.setAttribute("selectedDate", date);
+            session.setAttribute("matchsAdded", AddMatchLogic.getMatchsByDate(date));
+            UpdatePointsLogic.setQtTeams(AddMatchLogic.getQtTeamsByDate(date));
+            session.setAttribute("qtTeams", UpdatePointsLogic.getQtTeams());
         }
 
         @Override
