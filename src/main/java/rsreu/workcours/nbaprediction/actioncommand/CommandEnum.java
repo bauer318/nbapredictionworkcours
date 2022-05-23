@@ -97,6 +97,16 @@ public enum CommandEnum {
         {
            this.command = new BlockUnblockUserCommand();
         }
+    },
+    EDITMATCH{
+        {
+            this.command = new EditMatchCommand();
+        }
+    },
+    UPDATEMATCHDATA{
+        {
+          this.command = new UpdateMatchDataCommand();
+        }
     };
     ActionCommand command;
 

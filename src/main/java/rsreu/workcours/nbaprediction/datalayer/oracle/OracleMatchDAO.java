@@ -1,5 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
+import rsreu.workcours.nbaprediction.data.dao.ConnectionCloser;
 import rsreu.workcours.nbaprediction.data.dao.MatchDAO;
 import rsreu.workcours.nbaprediction.data.Match;
 
@@ -183,4 +184,90 @@ public class OracleMatchDAO implements MatchDAO {
         }
         return matchs;
     }
+
+    @Override
+    public void deleteMatch(int id) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection
+                    .prepareStatement("DELETE FROM nbaMatchsMod WHERE id_match = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to delete match by id");
+        }finally {
+            ConnectionCloser.closePreparedStatement(preparedStatement);
+        }
+    }
+
+    @Override
+    public void editeMatch(int id, int idGuestTeam, int idHomeTeam, Date date) throws SQLException {
+        long dateLong = date.getTime();
+        PreparedStatement preparedStatement = null;
+        try{
+            preparedStatement = connection.prepareStatement("UPDATE nbaMatchsMod SET id_team1=? ,id_team2=?, match_date=? WHERE id_match=?");
+            preparedStatement.setInt(1,idGuestTeam);
+            preparedStatement.setInt(2,idHomeTeam);
+            preparedStatement.setTimestamp(3,new java.sql.Timestamp(dateLong));
+            preparedStatement.setInt(4,id);
+            preparedStatement.executeQuery();
+        }catch (SQLException e){
+            throw new SQLException(("Fail to update match"));
+        }finally {
+            ConnectionCloser.closePreparedStatement(preparedStatement);
+        }
+    }
+
+    @Override
+    public Match getMatchById(int id) throws SQLException {
+        Match match = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("SELECT * FROM nbaMatchsMod WHERE id_match = ?");
+            preparedStatement.setInt(1,id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int idGuestTeam = resultSet.getInt("id_team1");
+                    int idHomeTeam = resultSet.getInt("id_team2");
+                    Date matchDate = resultSet.getDate("match_date");
+                    Time matchTime = resultSet.getTime("match_date");
+                    match = new Match(id, idGuestTeam, idHomeTeam, matchDate, matchTime);
+                }
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Fail to getAllMatchs");
+        } finally {
+            closePreparedStatement(preparedStatement);
+        }
+        return match;
+    }
+
+    @Override
+    public Match getMatchByIdTeamDate(int idTeam, Date date) throws SQLException {
+        Match match = null;
+        PreparedStatement preparedStatement = null;
+        try{
+            preparedStatement = connection.prepareStatement("SELECT * FROM nbaMatchsMod WHERE (id_team1=? OR id_team2=?) AND TRUNC (match_date) = ?  ");
+            preparedStatement.setInt(1, idTeam);
+            preparedStatement.setInt(2, idTeam);
+            preparedStatement.setDate(3, date);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    int idMatch = resultSet.getInt("id_match");
+                    int idGuestTeamVar = resultSet.getInt("id_team1");
+                    int idHomeTeamVar = resultSet.getInt("id_team2");
+                    Date matchDate = resultSet.getDate("match_date");
+                    Time matchTime = resultSet.getTime("match_date");
+                    match = new Match(idMatch, idGuestTeamVar, idHomeTeamVar, matchDate, matchTime);
+                }
+            }
+        }catch (SQLException e){
+            throw new SQLException("Fail to get match by teams id and date");
+        }finally {
+            closePreparedStatement(preparedStatement);
+        }
+        return match;
+    }
+
+
 }

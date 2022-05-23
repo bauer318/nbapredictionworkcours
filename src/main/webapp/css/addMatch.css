@@ -45,4 +45,38 @@ button{
 button:hover{
     background-color: orange;
 }
+dialog
+{
+    background-color:rgb(37,75,75);
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+#dialogForm{
+    height: 100%;
+    margin-top: 5%;
+    color: white;
+
+}
+#dialogForm input{
+    display: block;
+    width: 95%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+select{
+   width: 95%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+#dialogForm label{
+    margin-left: 2%;
+}
+#dialogForm button{
+    margin-left: 13%;
+    margin-right: 13%;
+}
+#dialogForm h4{
+    text-align: center;
+}
 

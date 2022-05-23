@@ -1,5 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
+import rsreu.workcours.nbaprediction.data.dao.ConnectionCloser;
 import rsreu.workcours.nbaprediction.data.dao.ResultDAO;
 import rsreu.workcours.nbaprediction.data.Result;
 import rsreu.workcours.nbaprediction.data.XY;
@@ -296,6 +297,22 @@ public class OracleResultDAO implements ResultDAO {
         }
         xy = new XY(y1, x1, y2, x2);
         return xy;
+    }
+
+    @Override
+    public void deleteResult(int idMatch, int idTeam) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection
+                    .prepareStatement("DELETE FROM nbaResultMod WHERE id_match = ? AND id_team = ?");
+            preparedStatement.setInt(1, idMatch);
+            preparedStatement.setInt(2,idTeam);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to delete qt team by idMatch and idTeam");
+        }finally {
+            ConnectionCloser.closePreparedStatement(preparedStatement);
+        }
     }
 
 }

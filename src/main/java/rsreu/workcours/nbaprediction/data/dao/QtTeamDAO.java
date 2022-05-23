@@ -24,4 +24,6 @@ public interface QtTeamDAO {
     QtTeam getQtTeamByIdTeamIdMatch(int idTeam, int idMatch) throws SQLException;
 
     double getQt13Average(int idTeam,Date date) throws SQLException;
+
+    void deleteQtTeam(int id_match, int id_team) throws SQLException;
 }

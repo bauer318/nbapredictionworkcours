@@ -58,6 +58,7 @@ public enum UserTypeEnum {
             HttpSession session = request.getSession();
             session.setAttribute("currentTime", currentTime);
             session.setAttribute("currentDate", currentDate);
+            session.setAttribute("isStringCurrentDate",false);
             session.setAttribute("nbaTeams", AddMatchLogic.getNbaTeams());
             Date date = DateTimeWorker.localDateToDate(currentDate);
             session.setAttribute("selectedDate", date);

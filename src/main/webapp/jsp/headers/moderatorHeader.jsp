@@ -25,15 +25,15 @@
         <form id="predicitonMenuForm" method="POST" action="controller">
             <input type="hidden" name="command" value="menuPrediction">
         </form>
-        <form id="historyMenuForm" method="POST" action="controller">
-            <input type="hidden" name="command" value="menuHistory">
+        <form id="logoutForm" method="POST" action="controller">
+            <input type="hidden" name="command" value="logout">
         </form>
         <div id="menuDiv">
             <div class="menuButtonDiv"><button type="submit" form="addMatchMenuForm">Add Match</button></div>
             <div class="menuButtonDiv"><button type="submit" form="updatePointsMenuForm">Update Points</button></div>
             <div class="menuButtonDiv"><button type="submit" form="rantingMenuForm">Ranting</button></div>
             <div class="menuButtonDiv"><button type="submit" form="predicitonMenuForm">Prediction</button></div>
-            <div class="menuButtonDiv"><button type="submit" form="historyMenuForm">History</button></div>
+            <div class="menuButtonDiv"><button type="submit" form="logoutForm">Выход</button></div>
         </div>
     </header>
 </div>

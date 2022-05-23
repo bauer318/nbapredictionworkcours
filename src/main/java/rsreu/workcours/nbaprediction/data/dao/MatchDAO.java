@@ -14,4 +14,8 @@ public interface MatchDAO {
     int getIdHomeTeamByIdMatch(int idMatch) throws SQLException;
     void insertMatch(int idGuestTeam, int idHomeTeam, Date date) throws SQLException;
     List<Match> getMatchsByHomeTeamGuestTeamMatchDate(int idGuestTeam, int idHomeTeam, Date date) throws SQLException;
+    void deleteMatch(int id) throws SQLException;
+    void editeMatch(int id, int idGuestTeam, int idHomeTeam, Date date) throws SQLException;
+    Match getMatchById(int id) throws  SQLException;
+    Match getMatchByIdTeamDate(int idTeam,  Date date) throws SQLException;
 }

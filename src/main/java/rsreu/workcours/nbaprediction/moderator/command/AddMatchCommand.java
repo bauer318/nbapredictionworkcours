@@ -29,6 +29,7 @@ public class AddMatchCommand implements ActionCommand {
         HttpSession session = request.getSession(false);
         session.setAttribute("currentTime", timeStr);
         session.setAttribute("currentDate", dateStr);
+        session.setAttribute("isStringCurrentDate",true);
         request.setAttribute("team1", idGuestTeam);
         request.setAttribute("team2", idHomeTeam);
         Date date = DateTimeWorker.stringToDate(dateStr);

@@ -1,5 +1,6 @@
 package rsreu.workcours.nbaprediction.datalayer.oracle;
 
+import rsreu.workcours.nbaprediction.data.dao.ConnectionCloser;
 import rsreu.workcours.nbaprediction.data.dao.QtTeamDAO;
 import rsreu.workcours.nbaprediction.data.QtTeam;
 
@@ -276,6 +277,22 @@ public class OracleQtTeamDAO implements QtTeamDAO {
             closePreparedStatement(preparedStatement);
         }
         return (avgQt1 + avgQt2 + avgQt3) / 3;
+    }
+
+    @Override
+    public void deleteQtTeam(int id_match, int id_team) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection
+                    .prepareStatement("DELETE FROM nbaQtTeamsMod WHERE id_match = ? AND id_team = ?");
+            preparedStatement.setInt(1, id_match);
+            preparedStatement.setInt(2,id_team);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to delete qt team by idMatch and idTeam");
+        }finally {
+            ConnectionCloser.closePreparedStatement(preparedStatement);
+        }
     }
 
 }

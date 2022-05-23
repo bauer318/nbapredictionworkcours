@@ -28,7 +28,20 @@ public class Match {
         this.strGuestTeam = AddMatchLogic.getTeamNameById(idGuestTeam);
         this.strHomeTeam = AddMatchLogic.getTeamNameById(idHomeTeam);
     }
-
+    public Match(Match match){
+        this.idMatch = match.idMatch;
+        this.idGuestTeam = match.idGuestTeam;
+        this.idHomeTeam = match.idHomeTeam;
+        this.matchDate = match.matchDate;
+        this.matchTime = match.matchTime;
+        this.strDate = match.strDate;
+        this.strTime = match.strTime;
+        this.strGuestTeam = match.strGuestTeam;
+        this.strHomeTeam = match.strHomeTeam;
+    }
+    public Match clone(){
+        return new Match(this);
+    }
     public int getIdMatch() {
         return idMatch;
     }

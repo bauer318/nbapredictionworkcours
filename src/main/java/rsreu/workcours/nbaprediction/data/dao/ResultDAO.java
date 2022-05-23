@@ -25,4 +25,5 @@ public interface ResultDAO {
             throws SQLException;
     void updateResultByTeamMatch(int idMatch, int idTeam, int matchQt4, String decision) throws SQLException;
     XY getXY(int idTeam, double avg) throws SQLException;
+    void deleteResult(int idMatch, int idTeam) throws SQLException;
 }
