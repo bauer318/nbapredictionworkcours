@@ -18,4 +18,5 @@ public interface RantingDAO {
                                           int totalPoints, int totalOpponentsPoints) throws SQLException;
 
     Ranting getRantingByItTeamRantingDate(int idTeam, Date ranting_date) throws SQLException;
+    void deleteRantingByIdTeamRantingDate(int idTeam, Date rantingDate) throws SQLException;
 }

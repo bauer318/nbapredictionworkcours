@@ -180,4 +180,20 @@ public class OracleRantingDAO implements RantingDAO {
         return ranting;
     }
 
+    @Override
+    public void deleteRantingByIdTeamRantingDate(int idTeam, Date rantingDate) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection
+                    .prepareStatement("DELETE FROM nbaRantingsMod WHERE id_team = ? AND TRUNC (ranting_date) =?");
+            preparedStatement.setInt(1, idTeam);
+            preparedStatement.setDate(2, rantingDate);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to delete ranting");
+        } finally {
+            closePreparedStatement(preparedStatement);
+        }
+    }
+
 }

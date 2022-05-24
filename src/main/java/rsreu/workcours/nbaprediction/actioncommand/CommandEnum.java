@@ -107,6 +107,11 @@ public enum CommandEnum {
         {
           this.command = new UpdateMatchDataCommand();
         }
+    },
+    DELETEMATCH{
+        {
+            this.command = new DeleteMatchCommand();
+        }
     };
     ActionCommand command;
 

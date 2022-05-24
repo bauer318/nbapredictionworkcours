@@ -3,9 +3,7 @@ package rsreu.workcours.nbaprediction.moderator.logic;
 import rsreu.workcours.nbaprediction.data.DBType;
 import rsreu.workcours.nbaprediction.data.Match;
 import rsreu.workcours.nbaprediction.data.QtTeam;
-import rsreu.workcours.nbaprediction.data.dao.DAOFactory;
-import rsreu.workcours.nbaprediction.data.dao.MatchDAO;
-import rsreu.workcours.nbaprediction.data.dao.QtTeamDAO;
+import rsreu.workcours.nbaprediction.data.dao.*;
 
 import java.sql.Date;
 
@@ -52,5 +50,37 @@ public class UpdateMatchDataLogic {
             e.printStackTrace();
         }
         return false;
+    }
+    public static void deleteRantingByIdTeamRantingDate(int idTeam, Date rantingDate){
+        try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
+            RantingDAO rantingDAO = factory.getRatingDAO();
+            rantingDAO.deleteRantingByIdTeamRantingDate(idTeam,rantingDate);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void deleteResultByIdMatchIdTeam(int idMatch, int idTeam){
+        try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
+            ResultDAO resultDAO = factory.getResultDAO();
+            resultDAO.deleteResult(idMatch, idTeam);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void deleteQtTeamByIdMatchIdTeam(int idMatch, int idTeam){
+        try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
+            QtTeamDAO qtTeamDAO = factory.getQtTeamDAO();
+            qtTeamDAO.deleteQtTeam(idMatch, idTeam);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void deleteMatchByIdMatch(int idMatch){
+        try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
+            MatchDAO matchDAO = factory.getMatchDAO();
+            matchDAO.deleteMatch(idMatch);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

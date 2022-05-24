@@ -65,14 +65,14 @@
                 <input type="hidden" name="command" value="updateMatchData"/>
                 <h4>${regime}</h4>
                 <label for="dateMatch">Дата </label><br/>
-                <input id = "dateMatch"name="dateMatch" type="date" value="${clonedMatch.matchDate}" ${disabled}/><br/>
+                <input id = "dateMatch"name="dateMatch" type="date" value="${clonedMatch.matchDate}" ${readonly}/><br/>
                 <label for="timeMatch">Время </label><br/>
-                <input id ="timeMatch" name="timeMatch" type="time" value="${clonedMatch.strTime}" ${disabled}/><br/>
+                <input id ="timeMatch" name="timeMatch" type="time" value="${clonedMatch.strTime}" ${readonly}/><br/>
                 <label for="homeTeam">Домашняя команда </label><br/>
-                <select name="homeTeam" id="homeTeam">
+                <select name="homeTeam" id="homeTeam" ${disabled}>
                     <c:forEach var="nbaTeams" items="${nbaTeams }">
                         <c:if test="${clonedMatch.idHomeTeam==nbaTeams.key }">
-                            <option selected value="${nbaTeams.key }">${nbaTeams.value }</option>
+                            <option selected value="${nbaTeams.key }" >${nbaTeams.value }</option>
                         </c:if>
                         <c:if test="${clonedMatch.idHomeTeam!=nbaTeams.key }">
                             <option value="${nbaTeams.key }">${nbaTeams.value }</option>
@@ -80,7 +80,7 @@
                     </c:forEach>
                 </select><br/>
                 <label for="awayTeam">Выезная команда</label><br/>
-                <select name="awayTeam" id="awayTeam">
+                <select name="awayTeam" id="awayTeam" ${disabled}>
                     <c:forEach var="nbaTeams" items="${nbaTeams }">
                         <c:if test="${clonedMatch.idGuestTeam==nbaTeams.key }">
                             <option selected value="${nbaTeams.key }">${nbaTeams.value }</option>

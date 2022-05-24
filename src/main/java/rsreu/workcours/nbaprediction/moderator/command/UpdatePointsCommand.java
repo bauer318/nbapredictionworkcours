@@ -59,13 +59,11 @@ public class UpdatePointsCommand implements ActionCommand {
                 double average = AddPredictionLogic.getTeamAvg(qt11, qt12, qt13);
                 String decision = AddPredictionLogic.getDecision(qt14, average);
                 AddPredictionLogic.updateResultByIdMatcIdTeam(idMatch, idGuestTeam, qt14, decision);
-
             }
             if (!AddPredictionLogic.isNotExistingResult(idMatch, idHomeTeam)) {
                 double average = AddPredictionLogic.getTeamAvg(qt21, qt22, qt23);
                 String decision = AddPredictionLogic.getDecision(qt24, average);
                 AddPredictionLogic.updateResultByIdMatcIdTeam(idMatch, idHomeTeam, qt24, decision);
-
             }
         }
 
