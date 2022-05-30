@@ -28,7 +28,7 @@ public class OracleDBDAOFactory extends DAOFactory {
     public void connected() throws ClassNotFoundException, SQLException {
         String url = "jdbc:oracle:thin:@localhost:1521:XE";
         String user = "SYSTEM";
-        String password = "Pass123";
+        String password = "Pass321";
         try {
             this.connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
