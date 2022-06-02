@@ -17,10 +17,10 @@ public class UpdateMatchDataLogic {
             e.printStackTrace();
         }
     }
-    public static void editQtTeam(int idMatch, int newIdTeam){
+    public static void editQtTeam(int idMatch, int idTeam,int newIdTeam){
         try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
             QtTeamDAO qtTeamDAO = factory.getQtTeamDAO();
-            qtTeamDAO.updateQtTeam(idMatch,newIdTeam,0,0,0,0,0);
+            qtTeamDAO.updateQtTeam(idMatch,idTeam,0,0,0,0,0,newIdTeam);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/commands/addMatch.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/commands" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/jsp/commands/prediction.jsp" value="file://$PROJECT_DIR$/src/main/webapp/jsp/commands" />
       </map>
     </option>
   </component>

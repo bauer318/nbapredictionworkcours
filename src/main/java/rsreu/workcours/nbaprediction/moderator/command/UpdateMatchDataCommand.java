@@ -77,35 +77,28 @@ public class UpdateMatchDataCommand implements ActionCommand {
                     LocalDate currentLocalDate = (LocalDate) session.getAttribute("currentDate");
                     date = DateTimeWorker.localDateToDate(currentLocalDate);
                 }
+                boolean cannotEdit = false;
                 if(UpdateMatchDataLogic.canEditMatchDate(matchId,clonedAwayIdTeam,clonedIdHomeTeam)){
-                    boolean isNewTeam = false;
-                    boolean canEdit = false;
-                    if(clonedIdHomeTeam != idHomeTeam){
-                        isNewTeam = true;
-                        if(!UpdateMatchDataLogic.isExistingMatch(idHomeTeam,dateTime)){
-                            UpdateMatchDataLogic.editQtTeam(matchId,idHomeTeam);
-                            canEdit = true;
+                    if(clonedIdHomeTeam != idHomeTeam || !dateTime.toString().equals(clonedMatch.getMatchDate().toString())){
+                        if(UpdateMatchDataLogic.isExistingMatch(idHomeTeam,dateTime)){
+                            cannotEdit = true;
                         }
                     }
-                    if(clonedAwayIdTeam != idAwayTeam){
-                        isNewTeam = true;
-                        if(!UpdateMatchDataLogic.isExistingMatch(idAwayTeam,dateTime)){
-                            UpdateMatchDataLogic.editQtTeam(matchId,idAwayTeam);
-                            canEdit = true;
+                    if(clonedAwayIdTeam != idAwayTeam || !dateTime.toString().equals(clonedMatch.getMatchDate().toString())){
+                        if(UpdateMatchDataLogic.isExistingMatch(idAwayTeam,dateTime)){
+                            cannotEdit = true;
                         }
                     }
-                    if(isNewTeam){
-                        if(canEdit){
-                            UpdateMatchDataLogic.editMatch(matchId,idAwayTeam,idHomeTeam,dateTime);
-                        }
-                    }else {
-                        UpdateMatchDataLogic.editMatch(matchId,clonedAwayIdTeam,clonedIdHomeTeam,dateTime);
+                    if(!cannotEdit){
+                        UpdateMatchDataLogic.editQtTeam(matchId,clonedAwayIdTeam,idAwayTeam);
+                        UpdateMatchDataLogic.editQtTeam(matchId,clonedIdHomeTeam,idHomeTeam);
+                        UpdateMatchDataLogic.editMatch(matchId,idAwayTeam,idHomeTeam,dateTime);
                     }
-                        if(date != null){
+                    if(date != null){
                             session.setAttribute("matchsAdded", AddMatchLogic.getMatchsByDate(date));
                             session.setAttribute("listGuestTeam", UpdatePointsLogic.getListGuestTeamByDate(date));
                             session.setAttribute("listHomeTeam", UpdatePointsLogic.getListHomeTeamByDate(date));
-                        }
+                    }
                     request.setAttribute("incorrectData",false);
                     request.setAttribute("open", "");
                 }else {

@@ -1,0 +1,123 @@
+html,body{
+    width:100%;
+    background-color:rgb(37,75,75);
+}
+.centerDiv{
+    display:flex;
+    width:80%;
+    margin: 1% auto 0%;
+    color: white;
+}
+.matchListSection{
+    width:100%;
+    overflow: auto;
+    height: 100%;
+    margin-right: 5px;
+}
+::-webkit-scrollbar {
+    background-color: hsl(235, 24%, 19%);
+    width: 5px;
+}
+.matchBody{
+    width:100%;
+    height:70%;
+    margin-top:0px;
+}
+.match{
+    width:99%;
+    height:10%;
+    margin: 5px;
+    background-color: rgb(20, 18, 41);
+}
+.leagueName{
+    width:50%;
+    height:15%;
+    border-radius: 2px;
+    color: white;
+}
+.leagueName h3{
+    margin:0px;
+    font-size:0.9em;
+}
+.matchPrediction{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.matchPrediction p{
+    margin-top: 5px;
+    color: white;
+}
+.matchPrediction progress{
+    margin-top: 10px;
+}
+.matchTitle{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height:40%;
+    margin-top: 4px;
+}
+.matchTitle button{
+    width: 35%;
+}
+.matchDateTime{
+    width:30%;
+    height:100%;
+    margin-left:1px;
+    color: blue;
+}
+.matchDateTime p{
+    margin:0px;
+}
+.matchTeams{
+    width:70%;
+    height:100%;
+    color: white;
+    margin-left:3px;
+    margin-right:0px;
+}
+.matchTeams p{
+    margin:0px;
+}
+.couponDiv{
+    width:50%;
+    height:100%;
+    margin-right: 5px;
+    overflow: auto;
+}
+.couponSection{
+    width:100%;
+    margin-top: 5px;
+}
+.couponSection h3{
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+}
+.listBetMatch{
+    width: 100%;
+}
+.listBetMatch{
+    height: 100%;
+}
+.matchBet{
+    width: 100%;
+    height: 13%;
+    background-color: rgb(20,18,41);
+    color: white;
+    margin-bottom: 1%;
+}
+.matchBet p{
+    margin-top: 0px;
+}
+.matchDate{
+    color: blue;
+}
+.matchTeamsPrediction{
+    display: flex;
+    justify-content: space-around;
+}
+

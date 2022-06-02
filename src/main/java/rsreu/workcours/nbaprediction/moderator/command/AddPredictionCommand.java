@@ -3,9 +3,11 @@ package rsreu.workcours.nbaprediction.moderator.command;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import rsreu.workcours.nbaprediction.actioncommand.ActionCommand;
+import rsreu.workcours.nbaprediction.bettor.PredictionLogic;
 import rsreu.workcours.nbaprediction.data.QtTeam;
 import rsreu.workcours.nbaprediction.data.Result;
 import rsreu.workcours.nbaprediction.data.XY;
+import rsreu.workcours.nbaprediction.decimal.DecimalFormater;
 import rsreu.workcours.nbaprediction.moderator.logic.AddPredictionLogic;
 import rsreu.workcours.nbaprediction.moderator.logic.RantingLogic;
 
@@ -97,6 +99,7 @@ public class AddPredictionCommand implements ActionCommand {
                     .getListAllResultByClubStatut(averageDifferenceGuest, prevResultsByRegime);
             double superiorProbabilty = AddPredictionLogic.getSuperiorProbability(averageDifferenceGuest, xy,
                     allPrevResultByTeamStatut, averagePercent);
+            double superiority = superiorProbabilty;
             AddPredictionLogic.addDecision(guestTeamId, superiorProbabilty);
             short observation = AddPredictionLogic.getObservation(superiorProbabilty);
             Result guestResult = new Result(idMatch, guestTeamId, average, regime, offensiveRegime, deffensiveRegime,
@@ -155,6 +158,7 @@ public class AddPredictionCommand implements ActionCommand {
                     prevResultsByRegime);
             superiorProbabilty = AddPredictionLogic.getSuperiorProbability(averageDifferenceHome, xy,
                     allPrevResultByTeamStatut, averagePercent);
+            superiority += superiorProbabilty;
             observation = AddPredictionLogic.getObservation(superiorProbabilty);
             AddPredictionLogic.addDecision(homeTeamId, superiorProbabilty);
             AddPredictionLogic.addPrevResult(homeTeamId, prevResultsByRegime);
@@ -172,6 +176,13 @@ public class AddPredictionCommand implements ActionCommand {
                             deffensiveRegime, teamOffensive, opponentDefensive, averageDifferenceHome, averagePercent,
                             mostQt4Percent, qt13Average, decision, matchQt4, observation, numberTotalTeamMatch,
                             numberMatchWihtCondition);
+                }
+                if(PredictionLogic.isExistPrediction(idMatch)){
+                    PredictionLogic.updatePrediction(idMatch, DecimalFormater.aroundDoubleToOnePlace(total),
+                            DecimalFormater.aroundDoubleToOnePlace(superiority/2));
+                }else{
+                    PredictionLogic.insertPrediction(idMatch,DecimalFormater.aroundDoubleToOnePlace(total),
+                            DecimalFormater.aroundDoubleToOnePlace(superiority/2));
                 }
             }
             AddPredictionLogic.addConfirmsText(homeTeamId, average, qt21,qt22,qt23);

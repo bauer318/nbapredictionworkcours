@@ -1,6 +1,7 @@
 package rsreu.workcours.nbaprediction.actioncommand;
 
 
+import rsreu.workcours.nbaprediction.bettor.PredictionCommand;
 import rsreu.workcours.nbaprediction.loginlogout.command.ConnectedCommand;
 import rsreu.workcours.nbaprediction.loginlogout.command.LoginCommand;
 import rsreu.workcours.nbaprediction.loginlogout.command.LogoutCommand;
@@ -111,6 +112,11 @@ public enum CommandEnum {
     DELETEMATCH{
         {
             this.command = new DeleteMatchCommand();
+        }
+    },
+    MENUBETTOR{
+        {
+            this.command = new PredictionCommand();
         }
     };
     ActionCommand command;

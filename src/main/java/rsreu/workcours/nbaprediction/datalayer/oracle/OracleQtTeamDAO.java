@@ -102,6 +102,28 @@ public class OracleQtTeamDAO implements QtTeamDAO {
     }
 
     @Override
+    public void updateQtTeam(int id_match, int id_team, int qt1, int qt2, int qt3, int qt4, int qt5, int newIdMatch)
+            throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(
+                    "UPDATE nbaQtTeamsMod SET qt1=?, qt2=?, qt3=?, qt4=?, qt5=?, id_team=? WHERE id_match=? AND id_team=?");
+            preparedStatement.setInt(1, qt1);
+            preparedStatement.setInt(2, qt2);
+            preparedStatement.setInt(3, qt3);
+            preparedStatement.setInt(4, qt4);
+            preparedStatement.setInt(5, qt5);
+            preparedStatement.setInt(6, newIdMatch);
+            preparedStatement.setInt(7, id_match);
+            preparedStatement.setInt(8, id_team);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to update Qt Teams");
+        } finally {
+            closePreparedStatement(preparedStatement);
+        }
+    }
+
     public void updateQtTeam(int id_match, int id_team, int qt1, int qt2, int qt3, int qt4, int qt5)
             throws SQLException {
         PreparedStatement preparedStatement = null;

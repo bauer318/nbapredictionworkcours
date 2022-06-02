@@ -2,6 +2,7 @@ package rsreu.workcours.nbaprediction.data;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import rsreu.workcours.nbaprediction.bettor.PredictionLogic;
 import rsreu.workcours.nbaprediction.datetime.DateTimeWorker;
 import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
 import rsreu.workcours.nbaprediction.moderator.logic.AddMatchLogic;
@@ -84,14 +85,23 @@ public enum UserTypeEnum {
     },BETTOR(3) {
         @Override
         public String getUserIndexPage() {
-            String page = "/jsp/commands/bettorIndex.jsp";
+            String page = "/jsp/commands/prediction.jsp";
             return page;
         }
 
         @Override
         public void setUserMenu(HttpServletRequest request) {
-            // TODO Auto-generated method stub
-
+            int currentHour = LocalTime.now().getHour();
+            int currentMinute = LocalTime.now().getMinute();
+            LocalTime currentTime = LocalTime.of(currentHour, currentMinute);
+            LocalDate currentDate = LocalDate.now();
+            HttpSession session = request.getSession();
+            session.setAttribute("currentTime", currentTime);
+            session.setAttribute("currentDate", currentDate);
+            session.setAttribute("isStringCurrentDate",false);
+            Date date = DateTimeWorker.localDateToDate(currentDate);
+            session.setAttribute("selectedDate", date);
+            session.setAttribute("predictions", PredictionLogic.getPredictionsByMatchDate(date));
         }
 
         @Override

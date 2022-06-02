@@ -81,4 +81,9 @@ public class OracleDBDAOFactory extends DAOFactory {
         return new OracleDefensiveRantingDAO(this.connection);
     }
 
+    @Override
+    public PredictionDAO getPredictionDAO() {
+        return new OraclePredictionDAO(this.connection);
+    }
+
 }

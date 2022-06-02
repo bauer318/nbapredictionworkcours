@@ -11,6 +11,7 @@ public interface QtTeamDAO {
 
     List<QtTeam> getQtTeamByMatchDate(Date date) throws SQLException;
 
+    void updateQtTeam(int id_match, int id_team, int qt1, int qt2, int qt3, int qt4, int qt5, int newIdTeam) throws SQLException;
     void updateQtTeam(int id_match, int id_team, int qt1, int qt2, int qt3, int qt4, int qt5) throws SQLException;
 
     int countTeamMatchWithMostQt4BeforeDate(int idTeam, Date date) throws SQLException;

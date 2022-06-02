@@ -28,4 +28,6 @@ public abstract class DAOFactory  implements  AutoCloseable{
     public abstract OffensiveRantingDAO getOffensiveRantingDAO();
 
     public abstract DefensiveRantingDAO getDefensiveRantingDAO();
+
+    public abstract PredictionDAO getPredictionDAO();
 }
