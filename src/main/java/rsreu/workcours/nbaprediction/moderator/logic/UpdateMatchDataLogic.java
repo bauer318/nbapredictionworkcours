@@ -83,4 +83,12 @@ public class UpdateMatchDataLogic {
             e.printStackTrace();
         }
     }
+    public static void deletePredictionByIdMatch(int idMatch){
+        try(DAOFactory factory = DAOFactory.getInstance(DBType.ORACLE)){
+            PredictionDAO predictionDAO = factory.getPredictionDAO();
+            predictionDAO.deletePredictionByIdMatch(idMatch);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

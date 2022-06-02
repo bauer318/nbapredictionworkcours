@@ -48,6 +48,7 @@ public class UpdateMatchDataCommand implements ActionCommand {
             UpdateMatchDataLogic.deleteResultByIdMatchIdTeam(matchId,idHomeTeam);
             UpdateMatchDataLogic.deleteQtTeamByIdMatchIdTeam(matchId,idAwayTeam);
             UpdateMatchDataLogic.deleteQtTeamByIdMatchIdTeam(matchId,idHomeTeam);
+            UpdateMatchDataLogic.deletePredictionByIdMatch(matchId);
             UpdateMatchDataLogic.deleteMatchByIdMatch(matchId);
             List<Ranting> rantings = RantingLogic.getAllRantings();
             RantingLogic.setRantings(rantings);

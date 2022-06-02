@@ -11,4 +11,5 @@ public interface PredictionDAO {
     void insertPrediction(int idMatch, double total, double superiority) throws SQLException;
     void updatePrediction(int idMatch, double total, double superiority) throws SQLException;
     Prediction getPredictionByIdMatch(int idMatch) throws SQLException;
+    void deletePredictionByIdMatch(int idMatch) throws  SQLException;
 }

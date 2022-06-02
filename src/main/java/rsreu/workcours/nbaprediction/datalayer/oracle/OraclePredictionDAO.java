@@ -94,4 +94,19 @@ public class OraclePredictionDAO implements PredictionDAO {
         }
         return prediction;
     }
+
+    @Override
+    public void deletePredictionByIdMatch(int idMatch) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(
+                    "DELETE FROM nbapredictions WHERE id_match = ?");
+            preparedStatement.setInt(1, idMatch);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException("Fail to get prediction by idMatch");
+        }finally {
+            closePreparedStatement(preparedStatement);
+        }
+    }
 }
