@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import rsreu.workcours.nbaprediction.bettor.PredictionLogic;
 import rsreu.workcours.nbaprediction.datetime.DateTimeWorker;
-import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.logic.LoginLogic;
 import rsreu.workcours.nbaprediction.moderator.logic.AddMatchLogic;
 import rsreu.workcours.nbaprediction.moderator.logic.UpdatePointsLogic;
 import rsreu.workcours.nbaprediction.user.logic.EditUserLogic;

@@ -2,9 +2,9 @@ package rsreu.workcours.nbaprediction.actioncommand;
 
 
 import rsreu.workcours.nbaprediction.bettor.PredictionCommand;
-import rsreu.workcours.nbaprediction.loginlogout.command.ConnectedCommand;
-import rsreu.workcours.nbaprediction.loginlogout.command.LoginCommand;
-import rsreu.workcours.nbaprediction.loginlogout.command.LogoutCommand;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.command.ConnectedCommand;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.command.LoginCommand;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.command.LogoutCommand;
 import rsreu.workcours.nbaprediction.moderator.command.*;
 import rsreu.workcours.nbaprediction.user.command.*;
 

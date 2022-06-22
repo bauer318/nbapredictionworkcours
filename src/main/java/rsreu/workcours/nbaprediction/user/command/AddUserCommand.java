@@ -2,7 +2,7 @@ package rsreu.workcours.nbaprediction.user.command;
 
 import jakarta.servlet.http.HttpServletRequest;
 import rsreu.workcours.nbaprediction.actioncommand.ActionCommand;
-import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.logic.LoginLogic;
 import rsreu.workcours.nbaprediction.data.User;
 import rsreu.workcours.nbaprediction.user.logic.AddUserLogic;
 
@@ -23,7 +23,14 @@ public class AddUserCommand implements ActionCommand {
         String password = request.getParameter(PARAM_NAME_PASSWORD);
         String role = request.getParameter(PARAM_NAME_ROLE);
         if(AddUserLogic.isLoginExist(login)) {
-            request.setAttribute("isLoginExist", "Это логин уже существует");
+            request.setAttribute("isLoginExist", "Этот логин уже существует");
+            request.setAttribute("loginUser",login);
+            request.setAttribute("passwordUser",password);
+            if(role.equals("bettor")){
+                request.setAttribute("firstnameUser",request.getParameter(PARAM_NAME_FIRSTNAME));
+                request.setAttribute("lastnameUser",request.getParameter(PARAM_NAME_LASTNAME));
+                request.setAttribute("emailUser",request.getParameter(PARAM_NAME_EMAIL));
+            }
         }else {
             if(role.equals("bettor")) {
                 String firstname = request.getParameter(PARAM_NAME_FIRSTNAME);

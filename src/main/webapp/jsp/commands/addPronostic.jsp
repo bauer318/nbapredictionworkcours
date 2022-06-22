@@ -87,17 +87,17 @@
                         <table>
                             <thead>
                             <tr>
-                                <th><label>Team</label></th>
-                                <th><label>s/i</label></th>
-                                <th><label>AVG</label></th>
-                                <th><label>Average Percent%</label></th>
+                                <th><label>Команда</label></th>
+                                <th><label>Б/М</label></th>
+                                <th><label>Сред</label></th>
+                                <th><label>Стредний процент%</label></th>
                                 <th><label>Y1</label></th>
                                 <th><label>X1</label></th>
                                 <th><label>Y2</label></th>
                                 <th><label>X2</label></th>
-                                <th><label>Probability(S)</label></th>
-                                <th><label>Habitual 3First QT</label></th>
-                                <th><label>Total</label></th>
+                                <th><label>Вероятность(Б)</label></th>
+                                <th><label>Обычные забитые очки</label></th>
+                                <th><label>Тотал</label></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -196,15 +196,15 @@
                                 <th><label>Qt2</label></th>
                                 <th><label>Qt3</label></th>
                                 <th><label>Qt4</label></th>
-                                <th><label>Scheme</label></th>
-                                <th><label>Offensive</label></th>
-                                <th><label>Defensive</label></th>
-                                <th><label>Difference</label></th>
+                                <th><label>Схема</label></th>
+                                <th><label>Оскорбительный</label></th>
+                                <th><label>Оборонительный</label></th>
+                                <th><label>Разница</label></th>
                                 <th><label>s/i</label></th>
-                                <th><label>avg</label></th>
+                                <th><label>Средний</label></th>
                                 <th><label>%</label></th>
-                                <th><label>Most QT4%</label></th>
-                                <th><label>Habitual 3FirstQT</label></th>
+                                <th><label>Больше QT4%</label></th>
+                                <th><label>Обычные забитые очки</label></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -259,15 +259,15 @@
                                 <th><label>Qt2</label></th>
                                 <th><label>Qt3</label></th>
                                 <th><label>Qt4</label></th>
-                                <th><label>Scheme</label></th>
-                                <th><label>Offensive</label></th>
-                                <th><label>Defensive</label></th>
-                                <th><label>Difference</label></th>
-                                <th><label>s/i</label></th>
-                                <th><label>AVG</label></th>
+                                <th><label>Схема</label></th>
+                                <th><label>Оскорбительный</label></th>
+                                <th><label>Оборонительный</label></th>
+                                <th><label>Разница</label></th>
+                                <th><label>Б/М</label></th>
+                                <th><label>Средний</label></th>
                                 <th><label>%</label></th>
-                                <th><label>Most QT4%</label></th>
-                                <th><label>Habitual 3FirstQT</label></th>
+                                <th><label>Больше QT4%</label></th>
+                                <th><label>Обычные забитые очки</label></th>
                             </tr>
                             </thead>
                             <tbody>

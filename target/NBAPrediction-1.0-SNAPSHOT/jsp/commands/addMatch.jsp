@@ -23,10 +23,10 @@
         <table>
             <tr>
                 <td>
-                    <label for="matchDate">Date: </label><input type="date" name="matchDate" id="matchDate" form="addMatchForm" value="${currentDate }">
+                    <label for="matchDate">Дата: </label><input type="date" name="matchDate" id="matchDate" form="addMatchForm" value="${currentDate }">
                 </td>
                 <td>
-                    <label for="matchTime">Time: </label><input type="time" name="matchTime" id="matchTime" form="addMatchForm" value="${currentTime}">
+                    <label for="matchTime">Время: </label><input type="time" name="matchTime" id="matchTime" form="addMatchForm" value="${currentTime}">
                 </td>
                 <td>
                     <select name="team1" id="team1" form="addMatchForm">

@@ -18,13 +18,13 @@
             <thead>
             <tr>
                 <th>№</th>
-                <th>Date and Time</th>
-                <th>Team</th>
+                <th>Дата и время</th>
+                <th>Команда</th>
                 <th>QT1</th>
                 <th>QT2</th>
                 <th>QT3</th>
                 <th>QT4</th>
-                <th>Over time</th>
+                <th>Овертайм</th>
             </tr>
             </thead>
             <c:set var="matchsAdded" value="${matchsAdded }"></c:set>
@@ -43,7 +43,7 @@
                         <td><input type="number" name="qt13" value="${listGuestTeam[loop.index].qt3}" min="0" max="70"></td>
                         <td><input type="number" name="qt14" value="${listGuestTeam[loop.index].qt4}" min="0" max="70"></td>
                         <td><input type="number" name="team1OverTime" value="${listGuestTeam[loop.index].qt5}" min="0" max="70" ></td>
-                        <td><button type="submit" name="updateMatch" value="1">Update</button></td>
+                        <td><button type="submit" name="updateMatch" value="1">Обновлять</button></td>
                         <td><input type="hidden" name="selectedIndex" value="${loop.index}"></td>
                         <td><input type="hidden" name="idMatch" value="${matchsAdded[loop.count-1].idMatch}"></td>
                     </tr>
@@ -54,7 +54,7 @@
                         <td><input type="number" name="qt23" value="${listHomeTeam[loop.index].qt3 }" min="0" max="70" ></td>
                         <td><input type="number" name="qt24" value="${listHomeTeam[loop.index].qt4 }" min="0" max="70" ></td>
                         <td><input type="number" name="team2OverTime" value="${listHomeTeam[loop.index].qt5 }" min="0" max="70"></td>
-                        <td><button type="submit" name="updateMatch" value="0">Save</button></td>
+                        <td><button type="submit" name="updateMatch" value="0">Сохранить</button></td>
                     </tr>
                     </tbody>
                 </form>

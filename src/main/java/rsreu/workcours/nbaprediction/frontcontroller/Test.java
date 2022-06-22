@@ -1,13 +1,8 @@
 package rsreu.workcours.nbaprediction.frontcontroller;
 
-import rsreu.workcours.nbaprediction.data.Bettor;
 import rsreu.workcours.nbaprediction.data.User;
 import rsreu.workcours.nbaprediction.data.UserTypeEnum;
-import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
-import rsreu.workcours.nbaprediction.user.logic.EditUserLogic;
-
-import java.util.Iterator;
-import java.util.List;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.logic.LoginLogic;
 
 public class Test {
     public static void main(String args[]){

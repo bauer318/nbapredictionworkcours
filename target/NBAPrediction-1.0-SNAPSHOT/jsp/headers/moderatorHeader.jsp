@@ -29,10 +29,10 @@
             <input type="hidden" name="command" value="logout">
         </form>
         <div id="menuDiv">
-            <div class="menuButtonDiv"><button type="submit" form="addMatchMenuForm">Add Match</button></div>
-            <div class="menuButtonDiv"><button type="submit" form="updatePointsMenuForm">Update Points</button></div>
-            <div class="menuButtonDiv"><button type="submit" form="rantingMenuForm">Ranting</button></div>
-            <div class="menuButtonDiv"><button type="submit" form="predicitonMenuForm">Prediction</button></div>
+            <div class="menuButtonDiv"><button type="submit" form="addMatchMenuForm">Добавить матч</button></div>
+            <div class="menuButtonDiv"><button type="submit" form="updatePointsMenuForm">Обновлять очки</button></div>
+            <div class="menuButtonDiv"><button type="submit" form="rantingMenuForm">Рейтинг</button></div>
+            <div class="menuButtonDiv"><button type="submit" form="predicitonMenuForm">Прогноз матчей</button></div>
             <div class="menuButtonDiv"><button type="submit" form="logoutForm">Выход</button></div>
         </div>
     </header>

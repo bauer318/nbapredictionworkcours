@@ -29,24 +29,24 @@
             </p>
             <p>
                 <label>Логин:</label>
-                <input type="text" name="userLogin" required="required"/>
+                <input type="text" name="userLogin" required="required" value="${loginUser}"/>
             </p>
             <p>
                 <label>Пароль:</label>
-                <input type="text" name="userPassword" required="required"/>
+                <input type="text" name="userPassword" required="required" value="${passwordUser}"/>
             </p>
             <div class="clientInfos">
                 <p>
                     <label>Имя:</label>
-                    <input type="text" name="userFirtsName" class="userFirstName"/>
+                    <input type="text" name="userFirtsName" class="userFirstName" value="${firstnameUser}"/>
                 </p>
                 <p>
                     <label>Фамилия:</label>
-                    <input type="text" name="userLastName" class="userLastName"/>
+                    <input type="text" name="userLastName" class="userLastName" value="${lastnameUser}"/>
                 </p>
                 <p>
                     <label>Электронная почта:</label>
-                    <input type="text" name="userEmail" class="userEmail"/>
+                    <input type="text" name="userEmail" class="userEmail" value="${emailUser}"/>
                 </p>
             </div>
             <p>

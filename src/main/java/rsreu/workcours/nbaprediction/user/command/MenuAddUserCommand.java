@@ -2,7 +2,7 @@ package rsreu.workcours.nbaprediction.user.command;
 
 import jakarta.servlet.http.HttpServletRequest;
 import rsreu.workcours.nbaprediction.actioncommand.ActionCommand;
-import rsreu.workcours.nbaprediction.loginlogout.logic.LoginLogic;
+import rsreu.workcours.nbaprediction.decimal.loginlogout.logic.LoginLogic;
 import rsreu.workcours.nbaprediction.data.User;
 
 import java.util.List;
